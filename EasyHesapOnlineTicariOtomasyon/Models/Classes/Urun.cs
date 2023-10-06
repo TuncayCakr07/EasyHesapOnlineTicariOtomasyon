@@ -28,7 +28,8 @@ namespace EasyHesapOnlineTicariOtomasyon.Models.Classes
         [Column(TypeName = "Varchar")]
         [StringLength(250)]
         public string UrunResim { get; set; }
-        public Kategori Kategori { get; set; }
+        public int Kategoriid { get; set; }
+        public virtual Kategori Kategori { get; set; }
         public ICollection<SatisHareket> SatisHarekets { get; set; }
 
     }

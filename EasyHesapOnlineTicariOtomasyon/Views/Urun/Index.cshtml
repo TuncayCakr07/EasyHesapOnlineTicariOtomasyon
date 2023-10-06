@@ -1,38 +1,43 @@
-﻿@using EasyHesapOnlineTicariOtomasyon.Models.Classes
-@model List<Kategori>
+﻿@using EasyHesapOnlineTicariOtomasyon.Models.Classes;
+@model List<Urun>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 <br />
-<h2>Kategori Listesi</h2>
+<h2>Ürün Listesi</h2>
 <br />
-<table class="table table-bordered" style="margin-top:20px">
-
-
+<table class="table table-bordered">
     <tr>
-        <td>ID</td>
-        <td>Kategori Adı</td>
-        <td>Sil</td>
-        <td>Güncelle</td>
+        <th>ID</th>
+        <th>ÜRÜN</th>
+        <th>MARKA</th>
+        <th>STOK</th>
+        <th>ALIŞ FİYAT</th>
+        <th>SATIŞ FİYAT</th>
+        <th>KATEGORİ</th>
+        <th>GÖRSEL</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+        
     </tr>
-    @foreach (var k in Model)
+    @foreach (var u in Model)
     {
-
         <tr>
-            <td>
-                @k.Kategoriid
-            </td>
-            <td>
-                @k.KategoriAd
-            </td>
-            <td><a href="/Kategori/KategoriSil/@k.Kategoriid" class="btn btn-outline-danger" onclick="silUyari()">Sil</a></td>
-            <td><a href="/Kategori/KategoriGetir/@k.Kategoriid" class="btn btn-outline-info">Güncelle</a></td>
+            <td>@u.Urunid</td>
+            <td>@u.UrunAd</td>
+            <td>@u.MarkaAdi</td>
+            <td>@u.Stok</td>
+            <td>@u.AlisFiyati</td>
+            <td>@u.SatisFiyati</td>
+            <td>@u.Kategori.KategoriAd</td>
+            <td>@u.UrunResim</td>
+            <td><a href="/Urun/UrunSil/@u.Urunid" class="btn btn-outline-danger" onclick="silUyari() ">Sil</a></td>
+            <td><a href="/Urun/Urungetir/@u.Urunid" class="btn btn-outline-success">Güncelle</a></td>
         </tr>
     }
 </table>
-<br />
-<a href="/Kategori/KategoriEkle" class="btn btn-success">Kategori Ekle</a>
+<a href="/Urun/YeniUrun/" class="btn btn-success">Yeni Ürün Ekle</a>
 <script>
     function ekleUyari() {
         alert("Kategori Eklendi");
@@ -70,5 +75,3 @@
         }
     }
 </script>
-
-

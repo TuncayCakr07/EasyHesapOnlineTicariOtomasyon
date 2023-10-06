@@ -11,10 +11,10 @@ namespace EasyHesapOnlineTicariOtomasyon.Models.Classes
     {
         [Key]
         public int Departmanid { get; set; }
-
         [Column(TypeName = "Varchar")]
         [StringLength(50)]
         public string DepartmanAdi { get; set; }
+        public bool Durum { get; set; }
         public ICollection<Personel> Personels { get; set; }
     }
 }

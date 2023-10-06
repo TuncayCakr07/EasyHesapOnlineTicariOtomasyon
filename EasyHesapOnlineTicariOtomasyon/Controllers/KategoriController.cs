@@ -43,5 +43,12 @@ namespace EasyHesapOnlineTicariOtomasyon.Controllers
             var ktg= c.Kategoris.Find(id);
             return View("KategoriGetir",ktg);
         }
+        public ActionResult KategoriGuncelle(Kategori k)
+        {
+            var ktgr = c.Kategoris.Find(k.Kategoriid);
+            ktgr.KategoriAd = k.KategoriAd;
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
