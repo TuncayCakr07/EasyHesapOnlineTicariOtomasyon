@@ -1,0 +1,42 @@
+﻿@using EasyHesapOnlineTicariOtomasyon.Models.Classes
+@model List<Cariler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Cari Hesaplar Lisresi</h2>
+<br />
+<table class="table table-hover">
+    <tr>
+        <th>Cari ID</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Unvan</th>
+        <th>Şehir</th>
+        <th>Mail</th>
+        <th>Telefon</th>
+        <th>Adres</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Cariid</td>
+            <td>@x.CariAd</td>
+            <td>@x.CariSoyad</td>
+            <td>@x.CariUnvan</td>
+            <td>@x.CariSehir</td>
+            <td>@x.CariMail</td>
+            <td>@x.CariTelefon</td>
+            <td>@x.CariAdres</td>
+            <td><a href="#" class="btn btn-outline-danger">Sil</a></td>
+            <td><a href="#" class="btn btn-outline-success">Güncelle</a></td>
+            <td><a href="#" class="btn btn-outline-warning">Detaylar</a></td>
+        </tr>
+    }
+</table>
+<br />
+<a href="/Cari/YeniCari/" class="btn btn-success">Yeni Cari Ekle</a>

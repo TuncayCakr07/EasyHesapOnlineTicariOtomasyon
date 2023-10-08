@@ -1,0 +1,47 @@
+﻿@model EasyHesapOnlineTicariOtomasyon.Models.Classes.Cariler
+
+@{
+    ViewBag.Title = "YeniCari";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Cari Ekleme Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.CariAd)
+    @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CariSoyad)
+    @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CariUnvan)
+    @Html.TextBoxFor(x => x.CariUnvan, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CariSehir)
+    @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CariMail)
+    @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CariTelefon)
+    @Html.TextBoxFor(x => x.CariTelefon, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CariAdres)
+    @Html.TextBoxFor(x => x.CariAdres, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-danger" onclick="uyarı()">Kaydet</button>
+</form>
+<script>
+    function uyarı() {
+        alert("Cari Eklendi")
+
+        var message = "@TempData["KategoriKaydetMesaj"]";
+        TempData.Remove("KategoriKaydetMesaj");
+
+        if (message !== "") {
+            $("#popupMessage p").text(message);
+            $("#popupMessage").removeClass("hidden");
+        }
+    }
+</script>

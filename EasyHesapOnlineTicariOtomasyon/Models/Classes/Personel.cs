@@ -27,6 +27,7 @@ namespace EasyHesapOnlineTicariOtomasyon.Models.Classes
         [StringLength(250)]
         public string PersonelResim { get; set; }
         public ICollection<SatisHareket> SatisHarekets { get; set; }
-        public Departman Departmans { get; set; }
+        public int Departmanid { get; set; }
+        public virtual Departman Departmans { get; set; }
     }
 }

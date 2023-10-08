@@ -1,0 +1,30 @@
+﻿@model EasyHesapOnlineTicariOtomasyon.Models.Classes.Departman
+@{
+    ViewBag.Title = "DepartmanGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Departman Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("DepartmanGuncelle","Departman", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.DepartmanAdi)
+        @Html.TextBoxFor(x => x.DepartmanAdi, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.Departmanid)
+    </div>
+    <button class="btn btn-warning" onclick="uyarı()">Güncelle</button>
+}
+<script>
+    function uyarı() {
+        alert("Departman Güncellendi")
+
+        var message = "@TempData["KategoriKaydetMesaj"]";
+        TempData.Remove("KategoriKaydetMesaj");
+
+        if (message !== "") {
+            $("#popupMessage p").text(message);
+            $("#popupMessage").removeClass("hidden");
+        }
+    }
+</script>

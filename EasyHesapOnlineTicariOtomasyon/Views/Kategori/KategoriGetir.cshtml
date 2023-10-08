@@ -15,3 +15,16 @@
     </div>
    <button class="btn btn-warning" onclick="uyarı()">Güncelle</button>
 }
+<script>
+    function uyarı() {
+        alert("Kategori Güncellendi")
+
+        var message = "@TempData["KategoriKaydetMesaj"]";
+        TempData.Remove("KategoriKaydetMesaj");
+
+        if (message !== "") {
+            $("#popupMessage p").text(message);
+            $("#popupMessage").removeClass("hidden");
+        }
+    }
+</script>

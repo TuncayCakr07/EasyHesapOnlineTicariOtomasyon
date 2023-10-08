@@ -7,10 +7,10 @@
 <h2>Yeni Ürün Ekleme Sayfası</h2>
 <br />
 <form class="form-group" method="post">
-    @Html.LabelFor(x => x.UrunAd)
+    <label for="UrunAd">Ürün Adı</label>
     @Html.TextBoxFor(x => x.UrunAd, new { @class = "form-control" })
     <br />
-    @Html.LabelFor(x => x.MarkaAdi)
+    <label for="MarkaAdi">Marka Adı</label>  
     @Html.TextBoxFor(x => x.MarkaAdi, new { @class = "form-control" })
     <br />
     @Html.LabelFor(x => x.Stok)
@@ -23,7 +23,7 @@
     @Html.TextBoxFor(x => x.SatisFiyati, new { @class = "form-control" })
     <br />
     @Html.LabelFor(x => x.Kategori.Kategoriid)
-    @Html.DropDownListFor(x=> x.Kategoriid,(List<SelectListItem>)ViewBag.dgr1,new{@class="form-control"})
+    @Html.DropDownListFor(x => x.Kategoriid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
 
     <br />
     @Html.LabelFor(x => x.UrunResim)
@@ -31,8 +31,8 @@
     <br />
     @Html.LabelFor(x => x.Durum)
     @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
-<br />
-<button class="btn btn-danger" onclick="uyarı()">Kaydet</button>
+    <br />
+    <button class="btn btn-danger" onclick="uyarı()">Kaydet</button>
 </form>
 <script>
     function uyarı() {

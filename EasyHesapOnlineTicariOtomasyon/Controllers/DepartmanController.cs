@@ -33,9 +33,40 @@ namespace EasyHesapOnlineTicariOtomasyon.Controllers
         public ActionResult DepartmanSil(int id)
         {
             var dep = c.Departmans.Find(id);
-            dep.Durum = false;
+            dep.Durum = true;
             c.SaveChanges();
             return RedirectToAction("Index");  
+        }
+
+        public ActionResult DepartmanGetir(int id)
+        {
+            var dpt = c.Departmans.Find(id);
+            return View("DepartmanGetir",dpt);
+        }
+        
+        public ActionResult DepartmanGuncelle(Departman d)
+        {
+            var dept=c.Departmans.Find(d.Departmanid);
+            dept.DepartmanAdi = d.DepartmanAdi;
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult DepartmanDetay(int id)
+        {
+            var deger=c.Personels.Where(x=> x.Departmanid==id).ToList();
+            var dpt=c.Departmans.Where(x=> x.Departmanid==id).Select(y=> y.DepartmanAdi).FirstOrDefault();
+            ViewBag.d=dpt;
+            return View(deger);
+        }
+
+        public ActionResult DepartmanPersonelSatis(int id)
+        {
+            var deger=c.SatisHarekets.Where(x=> x.Personelid==id).ToList();
+            var dpt = c.Departmans.Where(x => x.Departmanid == id).Select(y => y.DepartmanAdi).FirstOrDefault();
+            var per=c.Personels.Where(x=> x.Personelid == id).Select(y=> y.PersonelAd+" "+y.PersonelSoyad).FirstOrDefault();
+            ViewBag.dper=per;
+            return View(deger);
         }
     }
 }
