@@ -1,0 +1,39 @@
+﻿@model EasyHesapOnlineTicariOtomasyon.Models.Classes.Personel
+
+
+@{
+    ViewBag.Title = "PersonelEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Yeni Personel Ekleme Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    <label for="PersonelAd">Personel Adı</label>
+    @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
+    <br />
+    <label for="PersonelSoyad">Personel Soyadı</label>
+    @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
+    <br />
+    <label for="PersonelResim">Personel Görsel</label>
+    @Html.TextBoxFor(x => x.PersonelResim, new { @class = "form-control" })
+    <br />
+    <label for="PersonelDepartman">Personel Departman</label>
+    @Html.DropDownListFor(x => x.Departmanid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-danger" onclick="uyarı()">Kaydet</button>
+</form>
+<script>
+    function uyarı() {
+        alert("Personel Sisteme Eklendi")
+
+        var message = "@TempData["KategoriKaydetMesaj"]";
+        TempData.Remove("KategoriKaydetMesaj");
+
+        if (message !== "") {
+            $("#popupMessage p").text(message);
+            $("#popupMessage").removeClass("hidden");
+        }
+    }
+    </script>
+
