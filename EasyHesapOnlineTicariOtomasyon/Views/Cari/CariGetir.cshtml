@@ -1,0 +1,48 @@
+﻿@model EasyHesapOnlineTicariOtomasyon.Models.Classes.Cariler
+
+@{
+    ViewBag.Title = "CariGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Cari Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("CariGuncelle", "Cari", FormMethod.Post))
+{
+  <div class="form-group">
+      @Html.HiddenFor(x => x.Cariid)
+      @Html.LabelFor(x => x.CariAd)
+      @Html.TextBoxFor(x => x.CariAd, new { @class = "form-control" })
+      @Html.ValidationMessageFor(x => x.CariAd, "", new { @style = "color:red" })
+      <br />
+      @Html.LabelFor(x => x.CariSoyad)
+      @Html.TextBoxFor(x => x.CariSoyad, new { @class = "form-control" })
+      @Html.ValidationMessageFor(x => x.CariSoyad, "", new { @style = "color:red" })
+      <br />
+      @Html.LabelFor(x => x.CariUnvan)
+      @Html.TextBoxFor(x => x.CariUnvan, new { @class = "form-control" })
+      @Html.ValidationMessageFor(x => x.CariUnvan, "", new { @style = "color:red" })
+      <br />
+      @Html.LabelFor(x => x.CariSehir)
+      @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })
+      @Html.ValidationMessageFor(x => x.CariSehir, "", new { @style = "color:red" })
+      <br />
+      @Html.LabelFor(x => x.CariMail)
+      @Html.TextBoxFor(x => x.CariMail, new { @class = "form-control" })
+      @Html.ValidationMessageFor(x => x.CariMail, "", new { @style = "color:red" })
+      <br />
+      @Html.LabelFor(x => x.CariTelefon)
+      @Html.TextBoxFor(x => x.CariTelefon, new { @class = "form-control" })
+      @Html.ValidationMessageFor(x => x.CariTelefon, "", new { @style = "color:red" })
+      <br />
+      @Html.LabelFor(x => x.CariAdres)
+      @Html.TextBoxFor(x => x.CariAdres, new { @class = "form-control" })
+      @Html.ValidationMessageFor(x => x.CariAdres, "", new { @style = "color:red" })
+      <br />
+      @Html.LabelFor(x => x.CariSehir)
+      @Html.TextBoxFor(x => x.CariSehir, new { @class = "form-control" })
+      @Html.ValidationMessageFor(x => x.CariSehir, "", new { @style = "color:red" })
+      <br />
+      <button class="btn btn-success">Güncelle</button>
+  </div>            
+}
