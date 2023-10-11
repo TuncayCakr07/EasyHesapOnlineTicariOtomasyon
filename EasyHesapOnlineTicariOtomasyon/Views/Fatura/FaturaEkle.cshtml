@@ -1,0 +1,48 @@
+﻿@model EasyHesapOnlineTicariOtomasyon.Models.Classes.Fatura
+
+@{
+    ViewBag.Title = "FaturaEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Fatura Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    <label for="FaturaSeriNo">Fatura Seri No</label>
+    @Html.TextBoxFor(x => x.FaturaSerino, new { @class = "form-control" })
+    <br />
+    <label for="FaturaSiraNo">Fatura Sıra No</label>
+    @Html.TextBoxFor(x => x.FaturaSirano, new { @class = "form-control" })
+    <br />
+    <label for="VergiDairesi">Vergi Dairesi</label>
+    @Html.TextBoxFor(x => x.VergiDairesi, new { @class = "form-control" })
+    <br />
+    <label for="Tarih">Tarih</label>
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+    <br />
+    <label for="Saat">Saat</label>
+    @Html.TextBoxFor(x => x.Saat, new { @class = "form-control" })
+    <br />
+    <label for="TeslimEden">Teslim Eden</label>
+    @Html.TextBoxFor(x => x.TeslimEden, new { @class = "form-control" })
+    <br />
+    <label for="TeslimAlan">Teslim Alan</label>
+    @Html.TextBoxFor(x => x.TeslimAlan, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-danger" onclick="uyarı()">Kaydet</button>
+</form>
+<script>
+    function uyarı() {
+        alert("Fatura Sisteme Kaydedildi")
+
+        var message = "@TempData["KategoriKaydetMesaj"]";
+        TempData.Remove("KategoriKaydetMesaj");
+
+        if (message !== "") {
+            $("#popupMessage p").text(message);
+            $("#popupMessage").removeClass("hidden");
+        }
+    }
+</script>
+

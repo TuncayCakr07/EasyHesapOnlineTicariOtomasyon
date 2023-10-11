@@ -9,17 +9,19 @@
 <br />
 <h2>Personel Listesi</h2>
 <br />
-<table class="table table-bordered" style="margin-top:20px">
-    <tr>
-        <th class="asc">ID</th>
-        <th>Personel Ad</th>
-        <th>Personel Soyad</th>
-        <th>Görsel</th>
-        <th>Departman</th>
-        <th>Sil</th>
-        <th>Güncelle</th>
-        <th>Detaylar</th>
-    </tr>
+<table class="table table-hover" id="tbl1" style="margin-top:20px" width="100%" cellspacing="0">
+    <thead>
+        <tr>
+            <th class="asc">ID</th>
+            <th>Personel Ad</th>
+            <th>Personel Soyad</th>
+            <th>Görsel</th>
+            <th>Departman</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Detaylar</th>
+        </tr>
+    </thead>
     @foreach (var k in Model)
     {
         <tr>
@@ -32,7 +34,7 @@
             <td><a href="/Personel/PersonelGetir/@k.Personelid" class="btn btn-outline-info">Güncelle</a></td>
             <td><a href="/Departman/DepartmanPersonelSatis/@k.Personelid" class="btn btn-outline-warning">Detaylar</a></td>
         </tr>
-    } 
+    }
 </table>
 <br />
 <a href="/Personel/PersonelEkle" class="btn btn-success">Yeni Personel Ekle</a>
@@ -72,6 +74,24 @@
             $("#popupMessage").removeClass("hidden");
         }
     }
+</script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $(document).ready(function () {
+        $('#tbl1').DataTable();
+    });
+
 </script>
 
 

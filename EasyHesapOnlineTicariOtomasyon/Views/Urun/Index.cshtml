@@ -7,20 +7,22 @@
 <br />
 <h2>Ürün Listesi</h2>
 <br />
-<table class="table table-bordered">
-    <tr>
-        <th>ID</th>
-        <th>ÜRÜN</th>
-        <th>MARKA</th>
-        <th>STOK</th>
-        <th>ALIŞ FİYAT</th>
-        <th>SATIŞ FİYAT</th>
-        <th>KATEGORİ</th>
-        <th>GÖRSEL</th>
-        <th>SİL</th>
-        <th>GÜNCELLE</th>
-        
-    </tr>
+<table class="table table-hover" id="tbl1" style="margin-top:20px" width="100%" cellspacing="0">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>ÜRÜN</th>
+            <th>MARKA</th>
+            <th>STOK</th>
+            <th>ALIŞ FİYAT</th>
+            <th>SATIŞ FİYAT</th>
+            <th>KATEGORİ</th>
+            <th>GÖRSEL</th>
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+
+        </tr>
+    </thead>
     @foreach (var u in Model)
     {
         <tr>
@@ -74,4 +76,23 @@
             $("#popupMessage").removeClass("hidden");
         }
     }
+</script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $(document).ready(function () {
+        $('#tbl1').DataTable();
+    });
+
 </script>

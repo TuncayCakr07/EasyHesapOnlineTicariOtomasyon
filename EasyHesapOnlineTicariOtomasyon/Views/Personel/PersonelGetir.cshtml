@@ -12,16 +12,20 @@
 {
     <div class="form-group">
         @Html.HiddenFor(x => x.Personelid)
-        @Html.LabelFor(x => x.PersonelAd)
+        <label for="">Personel Adı</label>
+        @*@Html.LabelFor(x => x.PersonelAd)*@
         @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
         <br />
-        @Html.LabelFor(x => x.PersonelSoyad)
+        <label for="">Personel Soyadı</label>
+        @*@Html.LabelFor(x => x.PersonelSoyad)*@
         @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
         <br />
-        @Html.LabelFor(x => x.PersonelResim)
+        <label for="">Personel Resim</label>
+        @*@Html.LabelFor(x => x.PersonelResim)*@
         @Html.TextBoxFor(x => x.PersonelResim, new { @class = "form-control" })
         <br />
-        @Html.LabelFor(x => x.Departmans)
+        <label for="">Personel Departman</label>
+        @*@Html.LabelFor(x => x.Departmans)*@
         @Html.DropDownListFor(x => x.Departmanid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
         <br />
         <button class="btn btn-success">Güncelle</button>

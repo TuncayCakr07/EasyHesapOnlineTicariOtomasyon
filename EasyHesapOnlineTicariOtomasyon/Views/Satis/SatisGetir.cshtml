@@ -27,10 +27,12 @@
     @Html.LabelFor(x => x.Fiyat)
     @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control" })
     <br />
-    @Html.LabelFor(x => x.ToplamTutar)
+    <label for="">Toplam Tutar</label>
+    @*@Html.LabelFor(x => x.ToplamTutar)*@
     @Html.TextBoxFor(x => x.ToplamTutar, new { @class = "form-control" })
     <br />
-    @Html.LabelFor(x => x.Tarih)
+    <label for="">Tarih</label>
+    @*@Html.LabelFor(x => x.Tarih)*@
     @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
     <br />
     <button class="btn btn-warning" onclick="uyarı()">Güncelle</button>
