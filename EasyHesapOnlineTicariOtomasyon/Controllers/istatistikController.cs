@@ -50,5 +50,9 @@ namespace EasyHesapOnlineTicariOtomasyon.Controllers
             ViewBag.d16 = deger16;
             return View();
         }
+        public ActionResult SimpleTables()
+        {
+            return View(); 
+        }
     }
 }
