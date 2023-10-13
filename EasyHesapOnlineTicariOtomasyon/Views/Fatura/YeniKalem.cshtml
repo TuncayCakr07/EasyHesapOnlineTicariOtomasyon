@@ -1,0 +1,44 @@
+﻿@model EasyHesapOnlineTicariOtomasyon.Models.Classes.FaturaKalem
+
+@{
+    ViewBag.Title = "YeniKalem";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<br />
+<h2>Yeni Kalem Giriş</h2>
+<br />
+<form class="form-group" method="post">
+    <label for="FaturaSeriNo">Açıklama</label>
+    @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+    <br />
+    <label for="FaturaSiraNo">Miktar</label>
+    @Html.TextBoxFor(x => x.Miktar, new { @class = "form-control" })
+    <br />
+    <label for="VergiDairesi">Birim Fiyat</label>
+    @Html.TextBoxFor(x => x.Birimfiyat, new { @class = "form-control" })
+    <br />
+    <label for="Tarih">Tutar</label>
+    @Html.TextBoxFor(x => x.Tutar, new { @class = "form-control" })
+    <br />
+    <label for="Saat">FAturaID</label>
+    @Html.TextBoxFor(x => x.Faturaid, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-danger" onclick="uyarı()">Kaydet</button>
+</form>
+<script>
+    function uyarı() {
+        alert("Fatura Sisteme Kaydedildi")
+
+        var message = "@TempData["KategoriKaydetMesaj"]";
+        TempData.Remove("KategoriKaydetMesaj");
+
+        if (message !== "") {
+            $("#popupMessage p").text(message);
+            $("#popupMessage").removeClass("hidden");
+        }
+    }
+</script>
+
+

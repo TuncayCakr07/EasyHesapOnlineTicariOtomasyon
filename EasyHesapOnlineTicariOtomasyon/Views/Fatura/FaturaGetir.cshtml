@@ -1,0 +1,51 @@
+﻿@model EasyHesapOnlineTicariOtomasyon.Models.Classes.Fatura
+
+
+@{
+    ViewBag.Title = "FaturaGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Fatura Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("FaturaGuncelle", "Fatura", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.Faturaid)
+    <label for="">Fatura Seri No</label>
+    @Html.TextBoxFor(x => x.FaturaSerino, new { @class = "form-control" })
+    <br />
+    <label for="">Fatura Sıra No</label>
+    @Html.TextBoxFor(x => x.FaturaSirano, new { @class = "form-control" })
+    <br />
+    <label for="">Vergi Dairesi</label>
+    @Html.TextBoxFor(x => x.VergiDairesi, new { @class = "form-control" })
+    <br />
+    <label for="">Tarih</label>
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+    <br />
+    <label for="">Saat</label>
+    @Html.TextBoxFor(x => x.Saat, new { @class = "form-control" })
+    <br />
+    <label for="">Teslim Eden</label>
+    @Html.TextBoxFor(x => x.TeslimEden, new { @class = "form-control" })
+    <br />
+    <label for="">Teslim Alan</label>
+    @Html.TextBoxFor(x => x.TeslimAlan, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning" onclick="uyarı()">Güncelle</button>
+}
+<script>
+    function uyarı() {
+        alert("Fatura Güncellendi")
+
+        var message = "@TempData["KategoriKaydetMesaj"]";
+        TempData.Remove("KategoriKaydetMesaj");
+
+        if (message !== "") {
+            $("#popupMessage p").text(message);
+            $("#popupMessage").removeClass("hidden");
+        }
+    }
+</script>
+
+

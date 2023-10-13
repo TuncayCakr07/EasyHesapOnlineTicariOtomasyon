@@ -19,6 +19,7 @@ namespace EasyHesapOnlineTicariOtomasyon.Models.Classes
         public int Miktar { get; set; }
         public decimal Birimfiyat { get; set; }
         public decimal Tutar { get; set; }
-        public FaturaKalem Faturalar { get; set; }
+        public int Faturaid { get; set; }
+        public virtual FaturaKalem Faturalar { get; set; }
     }
 }
