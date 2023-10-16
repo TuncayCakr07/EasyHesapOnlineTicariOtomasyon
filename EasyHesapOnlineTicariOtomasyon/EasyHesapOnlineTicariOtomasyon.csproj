@@ -145,12 +145,14 @@
     <Compile Include="Models\Classes\Detay.cs" />
     <Compile Include="Models\Classes\FaturaKalem.cs" />
     <Compile Include="Models\Classes\Gider.cs" />
+    <Compile Include="Models\Classes\GrupSinif.cs" />
     <Compile Include="Models\Classes\Kategori.cs" />
     <Compile Include="Models\Classes\Cariler.cs" />
     <Compile Include="Models\Classes\Departman.cs" />
     <Compile Include="Models\Classes\Fatura.cs" />
     <Compile Include="Models\Classes\Personel.cs" />
     <Compile Include="Models\Classes\SatisHareket.cs" />
+    <Compile Include="Models\Classes\SinifGrup2.cs" />
     <Compile Include="Models\Classes\Urun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -2707,6 +2709,8 @@
     <Content Include="Views\istatistik\Index.cshtml" />
     <Content Include="Views\UrunDetay\Index.cshtml" />
     <Content Include="Views\istatistik\SimpleTables.cshtml" />
+    <Content Include="Views\istatistik\Partial1.cshtml" />
+    <Content Include="Views\istatistik\Partial2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
