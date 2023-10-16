@@ -1,11 +1,11 @@
 ﻿@using EasyHesapOnlineTicariOtomasyon.Models.Classes
-@model List<Cariler>
+@model List<Urun>
 
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Cari Bilgileri Grafiği</h3>
+                <h3 class="card-title">Ürün Bilgileri Grafiği</h3>
 
                 <div class="card-tools">
                     <div class="input-group input-group-sm" style="width: 150px;">
@@ -18,32 +18,28 @@
                 </div>
             </div>
             <!-- /.card-header -->
-            <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
+            <div class="card-body table-responsive p-0" style="height: 300px;">
+                <table class="table table-head-fixed text-nowrap">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Cari Ad-Soyad</th>
-                            <th>Cari Ünvan</th>
-                            <th>Şehir</th>
-                            <th>Mail Adresi</th>
-                            <th>Telefon</th>
-                            <th>Adres</th>
-                            <th>Durum</th>
+                            <th>Ürün Adı</th>
+                            <th>Marka</th>
+                            <th>Alış Fiyatı</th>
+                            <th>Satış Fiyatı</th>
+                            <th>Stok</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var x in Model)
                         {
                         <tr>
-                            <td>@x.Cariid</td>
-                            <td>@x.CariAd @x.CariSoyad</td>
-                            <td>@x.CariUnvan</td>
-                            <td>@x.CariSehir</td>
-                            <td>@x.CariMail</td>
-                            <td>@x.CariTelefon</td>
-                            <td>@x.CariAdres</td>
-                            <td>@x.Durum</td>
+                            <td>@x.Urunid</td>
+                            <td>@x.UrunAd</td>
+                            <td>@x.MarkaAdi</td>
+                            <td>@x.AlisFiyati ₺</td>
+                            <td>@x.SatisFiyati ₺</td>
+                            <td>@x.Stok</td>
                         </tr>
                         }
                     </tbody>
@@ -54,3 +50,4 @@
         <!-- /.card -->
     </div>
 </div>
+

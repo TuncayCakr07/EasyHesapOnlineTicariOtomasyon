@@ -68,5 +68,11 @@ namespace EasyHesapOnlineTicariOtomasyon.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public ActionResult PersonelList()
+        {
+            var deger=c.Personels.ToList();
+            return View(deger);
+        }
     }
 }

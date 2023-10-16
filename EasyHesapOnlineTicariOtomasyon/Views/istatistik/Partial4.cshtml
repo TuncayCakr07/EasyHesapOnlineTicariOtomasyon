@@ -1,0 +1,84 @@
+﻿@model IEnumerable<EasyHesapOnlineTicariOtomasyon.Models.Classes.SinifGrup3>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Ürün-Marka Grafiği</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Marka</th>
+                    <th>Durum</th>
+                    <th style="width: 40px">Adet</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{int sirano = 0; }
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>@{sirano++;} @sirano</td>
+                        <td>@x.Marka</td>
+                        <td>
+                            @if (x.Sayi == 1)
+                            {
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                </div>
+                            }
+                            else if (x.Sayi == 2)
+                            {
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar bg-warning" style="width: 70%"></div>
+                                </div>
+                            }
+                            else if (x.Sayi == 3)
+                            {
+                                <div class="progress progress-xs progress-striped active">
+                                    <div class="progress-bar bg-success" style="width: 90%"></div>
+                                </div>
+                            }
+                            else if (x.Sayi == 4)
+                            {
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar bg-warning" style="width: 40%"></div>
+                                </div>
+                            }
+                            else if (x.Sayi == 5)
+                            {
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar bg-primary" style="width: 50%"></div>
+                                </div>
+                            }
+                        </td>
+                        <td>
+                            @if (x.Sayi == 1)
+                            {
+                                <span class="badge bg-danger">@x.Sayi</span>
+                            }
+                            else if (x.Sayi == 2)
+                            {
+                                <span class="badge bg-success">@x.Sayi</span>
+                            }
+                            else if (x.Sayi == 3)
+                            {
+                                <span class="badge bg-warning">@x.Sayi</span>
+                            }
+                            else if (x.Sayi == 4)
+                            {
+                                <span class="badge bg-info">@x.Sayi</span>
+                            }
+                            else if (x.Sayi == 5)
+                            {
+                                <span class="badge bg-primary">@x.Sayi</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

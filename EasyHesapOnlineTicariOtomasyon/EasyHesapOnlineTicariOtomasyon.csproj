@@ -153,6 +153,7 @@
     <Compile Include="Models\Classes\Personel.cs" />
     <Compile Include="Models\Classes\SatisHareket.cs" />
     <Compile Include="Models\Classes\SinifGrup2.cs" />
+    <Compile Include="Models\Classes\SinifGrup3.cs" />
     <Compile Include="Models\Classes\Urun.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -2711,6 +2712,9 @@
     <Content Include="Views\istatistik\SimpleTables.cshtml" />
     <Content Include="Views\istatistik\Partial1.cshtml" />
     <Content Include="Views\istatistik\Partial2.cshtml" />
+    <Content Include="Views\istatistik\Partial3.cshtml" />
+    <Content Include="Views\istatistik\Partial4.cshtml" />
+    <Content Include="Views\Personel\PersonelList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
