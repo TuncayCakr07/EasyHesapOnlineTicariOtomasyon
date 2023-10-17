@@ -41,6 +41,10 @@ namespace EasyHesapOnlineTicariOtomasyon.Models.Classes
         [StringLength(250, ErrorMessage = "En Fazla 250 Karakter Girilebilir ! Lütfen Düzeltiniz!")]
         public string CariAdres { get; set; }
 
+        [Column(TypeName = "Varchar")]
+        [StringLength(20, ErrorMessage = "En Fazla 20 Karakter Girilebilir ! Lütfen Düzeltiniz!")]
+        public string CariSifre { get; set; }
+
         public bool Durum { get; set; }
         public ICollection<SatisHareket> SatisHarekets { get; set; }
 

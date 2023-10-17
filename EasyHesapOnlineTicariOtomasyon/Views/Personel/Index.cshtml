@@ -28,7 +28,9 @@
             <td>@k.Personelid</td>
             <td> @k.PersonelAd</td>
             <td> @k.PersonelSoyad</td>
-            <td> @k.PersonelResim</td>
+            <td>
+                <img src="@k.PersonelResim" style="width:50px;height:50px;"/>
+            </td>
             <td> @k.Departmans.DepartmanAdi</td>
             <td><a href="/Personel/PersonelSil/@k.Personelid" class="btn btn-outline-danger" onclick="silUyari()">Sil</a></td>
             <td><a href="/Personel/PersonelGetir/@k.Personelid" class="btn btn-outline-info">Güncelle</a></td>
