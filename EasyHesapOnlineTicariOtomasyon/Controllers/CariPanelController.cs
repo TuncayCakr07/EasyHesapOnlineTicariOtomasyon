@@ -9,6 +9,7 @@ namespace EasyHesapOnlineTicariOtomasyon.Controllers
     public class CariPanelController : Controller
     {
         // GET: CariPanel
+        [Authorize]
         public ActionResult Index()
         {
             return View();
