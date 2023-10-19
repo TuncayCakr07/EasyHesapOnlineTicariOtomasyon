@@ -24,6 +24,7 @@ namespace EasyHesapOnlineTicariOtomasyon.Controllers
         [HttpPost]
         public ActionResult FaturaEkle(Fatura f)
         {
+            f.Toplam = 0.0m;
             c.Faturas.Add(f);
             c.SaveChanges();
             return RedirectToAction("Index");

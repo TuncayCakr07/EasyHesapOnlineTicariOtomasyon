@@ -4,16 +4,24 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using EasyHesapOnlineTicariOtomasyon.Models.Classes;
+using PagedList;
+using PagedList.Mvc;
+
 namespace EasyHesapOnlineTicariOtomasyon.Controllers
 {
     public class UrunController : Controller
     {
         // GET: Urun
         Context c = new Context();
-        public ActionResult Index()
+
+        public ActionResult Index(string p, int sayfa = 1)
         {
-            var urunler = c.Uruns.Where(x => x.Durum == true).ToList();
-            return View(urunler);
+            var urunler =from x in c.Uruns select x;
+            if (!string.IsNullOrEmpty(p))
+            {
+                urunler = urunler.Where(y => y.UrunAd.Contains(p));
+            }
+            return View(urunler.ToList().ToPagedList(sayfa, 5));
         }
         [HttpGet]
         public ActionResult YeniUrun()

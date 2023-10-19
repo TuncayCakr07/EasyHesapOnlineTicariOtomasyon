@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using EasyHesapOnlineTicariOtomasyon.Models.Classes;
+using PagedList;
+using PagedList.Mvc;
 
 namespace EasyHesapOnlineTicariOtomasyon.Controllers
 {
@@ -11,9 +13,9 @@ namespace EasyHesapOnlineTicariOtomasyon.Controllers
     {
         // GET: Kategori
         Context c=new Context();
-        public ActionResult Index()
+        public ActionResult Index(int sayfa=1)
         {
-            var values=c.Kategoris.ToList();
+            var values = c.Kategoris.ToList().ToPagedList(sayfa, 5);
             return View(values);
         }
         [HttpGet]

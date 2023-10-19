@@ -8,27 +8,29 @@
 <br />
 <h2>Personel Güncelleme Sayfası</h2>
 <br />
-@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post))
-{
-    <div class="form-group">
-        @Html.HiddenFor(x => x.Personelid)
-        <label for="">Personel Adı</label>
-        @*@Html.LabelFor(x => x.PersonelAd)*@
-        @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
-        <br />
-        <label for="">Personel Soyadı</label>
-        @*@Html.LabelFor(x => x.PersonelSoyad)*@
-        @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
-        <br />
-        <label for="">Personel Resim</label>
-        @*@Html.LabelFor(x => x.PersonelResim)*@
-        @Html.TextBoxFor(x => x.PersonelResim, new { @class = "form-control" })
-        <br />
-        <label for="">Personel Departman</label>
-        @*@Html.LabelFor(x => x.Departmans)*@
-        @Html.DropDownListFor(x => x.Departmanid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
-        <br />
-        <button class="btn btn-success">Güncelle</button>
-    </div>
-}
+@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+{ 
+        <div class="form-group">
+            @Html.HiddenFor(x => x.Personelid)
+            <label for="">Personel Adı</label>
+            @*@Html.LabelFor(x => x.PersonelAd)*@
+            @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
+            <br />
+            <label for="">Personel Soyadı</label>
+            @*@Html.LabelFor(x => x.PersonelSoyad)*@
+            @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
+            <br />
+            <label for="">Personel Resim</label>
+            @*@Html.LabelFor(x => x.PersonelResim)*@
+            @*@Html.TextBoxFor(x => x.PersonelResim, new { @class = "form-control" })*@
+             <br />
+            <input type="file" name="PersonelResim"/>
+            <br />
+            <label for="">Personel Departman</label>
+            @*@Html.LabelFor(x => x.Departmans)*@
+            @Html.DropDownListFor(x => x.Departmanid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+            <br />
+            <button class="btn btn-success">Güncelle</button>
+        </div>
+ }
 

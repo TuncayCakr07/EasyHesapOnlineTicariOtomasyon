@@ -8,6 +8,7 @@
 <br />
 <h2>Yeni Personel Ekleme Sayfası</h2>
 <br />
+@using (Html.BeginForm("PersonelEkle", "Personel", FormMethod.Post, new { enctype ="multipart/form-data" })) { 
 <form class="form-group" method="post">
     <label for="PersonelAd">Personel Adı</label>
     @Html.TextBoxFor(x => x.PersonelAd, new { @class = "form-control" })
@@ -16,13 +17,17 @@
     @Html.TextBoxFor(x => x.PersonelSoyad, new { @class = "form-control" })
     <br />
     <label for="PersonelResim">Personel Görsel</label>
-    @Html.TextBoxFor(x => x.PersonelResim, new { @class = "form-control" })
+    <br />
+    @*@Html.TextBoxFor(x => x.PersonelResim, new { @class = "form-control" })*@
+<input type="file" name="PersonelResim" class="btn btn-danger"/>
+    <br />
     <br />
     <label for="PersonelDepartman">Personel Departman</label>
     @Html.DropDownListFor(x => x.Departmanid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
     <br />
     <button class="btn btn-danger" onclick="uyarı()">Kaydet</button>
 </form>
+}
 <script>
     function uyarı() {
         alert("Personel Sisteme Eklendi")
