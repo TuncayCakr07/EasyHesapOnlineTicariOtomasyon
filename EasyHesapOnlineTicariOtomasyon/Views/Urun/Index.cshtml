@@ -29,6 +29,7 @@
             <th>KATEGORİ</th>
             <th>SİL</th>
             <th>GÜNCELLE</th>
+            <th>SATIŞ YAP</th>
 
         </tr>
     </thead>
@@ -43,6 +44,7 @@
             <td>@u.Kategori.KategoriAd</td>
             <td><a href="/Urun/UrunSil/@u.Urunid" class="btn btn-outline-danger" onclick="silUyari() ">Sil</a></td>
             <td><a href="/Urun/Urungetir/@u.Urunid" class="btn btn-outline-success">Güncelle</a></td>
+            <td><a href="/Urun/SatisYap/@u.Urunid" class="btn btn-outline-warning">Satış Yap</a></td>
         </tr>
     }
 </table>

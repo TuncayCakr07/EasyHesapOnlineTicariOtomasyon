@@ -30,5 +30,37 @@ namespace EasyHesapOnlineTicariOtomasyon.Controllers
             var degerler=c.SatisHarekets.Where(x=> x.Cariid==id).ToList();
             return View(degerler);
         }
+        public ActionResult GelenMesajlar()
+        {
+            var mail = (string)Session["CariMail"];
+            var deger = c.Mesajlars.Where(x=> x.Alici==mail).ToList();
+            var gelenmesaj=c.Mesajlars.Count(x=> x.Alici==mail).ToString();
+            ViewBag.d1 = gelenmesaj;
+            var gidenmesaj = c.Mesajlars.Count(x => x.Gonderen == mail).ToString();
+            ViewBag.d2 = gidenmesaj;
+            return View(deger);
+        }
+        public ActionResult GidenMesajlar()
+        {
+            var mail = (string)Session["CariMail"];
+            var deger = c.Mesajlars.Where(x => x.Gonderen == mail).ToList();
+            var gelenmesaj = c.Mesajlars.Count(x => x.Alici == mail).ToString();
+            ViewBag.d1 = gelenmesaj;
+            var gidenmesaj = c.Mesajlars.Count(x => x.Gonderen == mail).ToString();
+            ViewBag.d2 = gidenmesaj;
+            return View(deger);
+        }
+
+
+        //[HttpGet]
+        //public ActionResult YeniMesaj()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //public ActionResult YeniMesaj()
+        //{
+        //    return View();
+        //}
     }
 }

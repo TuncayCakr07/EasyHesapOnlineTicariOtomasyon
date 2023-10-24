@@ -1,0 +1,41 @@
+﻿@model EasyHesapOnlineTicariOtomasyon.Models.Classes.KargoDetay
+
+@{
+    ViewBag.Title = "YeniKargo";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Yeni Kargo Giriş Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.TakipKodu)
+    <input type="text" name="TakipKodu" value="@ViewBag.takipkod" class="form-control" readonly />
+    <br />
+    @Html.LabelFor(x => x.Personel)
+    @Html.TextBoxFor(x => x.Personel, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Alici)
+    @Html.TextBoxFor(x => x.Alici, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Tarih)
+    <input type="date" name="Tarih" class="form-control" />
+    <br />
+    @Html.LabelFor(x => x.Aciklama)
+    @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-danger" onclick="uyarı()">Kaydet</button>
+</form>
+<script>
+    function uyarı() {
+        alert("Kargo Sisteme Eklendi")
+
+        var message = "@TempData["KategoriKaydetMesaj"]";
+        TempData.Remove("KategoriKaydetMesaj");
+
+        if (message !== "") {
+            $("#popupMessage p").text(message);
+            $("#popupMessage").removeClass("hidden");
+        }
+    }
+</script>
+

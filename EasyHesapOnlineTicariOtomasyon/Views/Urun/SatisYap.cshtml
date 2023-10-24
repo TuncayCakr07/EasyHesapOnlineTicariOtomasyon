@@ -1,0 +1,55 @@
+﻿@model EasyHesapOnlineTicariOtomasyon.Models.Classes.SatisHareket
+
+@{
+    ViewBag.Title = "SatisYap";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Satış Yap</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.Urun.Urunid)
+    <input type="text" class="form-control" name="Urunid" value="@ViewBag.Deger1.Urunid" readonly="readonly" />
+    <br />
+    @Html.LabelFor(x => x.Personelid)
+    @Html.DropDownListFor(x => x.Personelid, (List<SelectListItem>)ViewBag.deger3, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Cariid)
+    @Html.TextBoxFor(x => x.Cariid, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Adet)
+    <input type="number" class="form-control" min="0" placeholder="Adet Giriniz" id="txt1" name="Adet" onchange="sum();" />
+    <br />
+    @Html.LabelFor(x => x.Fiyat)
+    <input type="text" name="Fiyat" class="form-control" value="@ViewBag.Deger2" id="txt2" onkeyup="sum();" />
+    <br />
+    @Html.LabelFor(x => x.ToplamTutar)
+    <input type="text" name="ToplamTutar" class="form-control" value="0" id="txt3" readonly />
+    <br />
+    <button class="btn btn-danger" onclick="uyarı()">Satış Yap</button>
+</form>
+<br />
+<script>
+    function sum() {
+        var sayi1 = document.getElementById('txt1').value;
+        var sayi2 = document.getElementById('txt2').value;
+        var sonuc = parseInt(sayi1) * parseInt(sayi2);
+        if (!isNaN(sonuc)) {
+            document.getElementById('txt3').value = sonuc
+        }
+    }
+</script>
+<script>
+    function uyarı() {
+        alert("Satış Sisteme Kaydedildi!")
+
+        var message = "@TempData["KategoriKaydetMesaj"]";
+        TempData.Remove("KategoriKaydetMesaj");
+
+        if (message !== "") {
+            $("#popupMessage p").text(message);
+            $("#popupMessage").removeClass("hidden");
+        }
+    }
+</script>
