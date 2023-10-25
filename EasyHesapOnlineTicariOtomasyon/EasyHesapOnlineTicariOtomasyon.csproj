@@ -240,6 +240,7 @@
     <Content Include="AdminLTE-3.0.4\dist\img\prod-3.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\prod-4.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\prod-5.jpg" />
+    <Content Include="AdminLTE-3.0.4\dist\img\tuncay.jpeg" />
     <Content Include="AdminLTE-3.0.4\dist\img\user1-128x128.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\user2-160x160.jpg" />
     <Content Include="AdminLTE-3.0.4\dist\img\user3-128x128.jpg" />
@@ -2810,6 +2811,10 @@
     <Content Include="Views\Grafik\Index7.cshtml" />
     <Content Include="Views\CariPanel\GelenMesajlar.cshtml" />
     <Content Include="Views\CariPanel\GidenMesajlar.cshtml" />
+    <Content Include="Views\CariPanel\MesajDetay.cshtml" />
+    <Content Include="Views\CariPanel\YeniMesaj.cshtml" />
+    <Content Include="Views\CariPanel\KargoTakip.cshtml" />
+    <Content Include="Views\CariPanel\CariKargoTakip.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

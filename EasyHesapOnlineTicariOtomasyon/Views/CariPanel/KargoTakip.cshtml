@@ -1,0 +1,82 @@
+﻿@using EasyHesapOnlineTicariOtomasyon.Models.Classes
+@model List<KargoDetay>
+@{
+    ViewBag.Title = "KargoTakip";
+    Layout = "~/Views/Shared/_CariLayout.cshtml";
+}
+
+
+<br />
+@using (Html.BeginForm("KargoTakip", "CariPanel", FormMethod.Get))
+{
+    <p>
+        Kargo Takip No: @Html.TextBox("p")
+        <input type="submit" value="Ara" class="btn btn-outline-success" />
+    </p>
+}
+<h2>Kargo Listesi</h2>
+<br />
+<table class="table table-hover" id="tbl1" style="margin-top:20px" width="100%" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Personel</th>
+            <th>Alıcı</th>
+            <th>Tarih</th>
+            <th>Kargo Takip No</th>
+            <th>Detaylar</th>
+        </tr>
+    </thead>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td> @k.Personel</td>
+            <td> @k.Alici</td>
+            <td> @k.Tarih</td>
+            <td> @k.TakipKodu</td>
+            <td><button type="button" class="btn btn-outline-warning" onclick="openPopup('@k.TakipKodu')">Detaylar</button></td>
+        </tr>
+    }
+</table>
+<br />
+<br />
+<br />
+
+
+<div class="modal" id="detaylarModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Kargo Detayları</h2>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Açıklama</th>
+                        <th>Detay</th>
+                    </tr>
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <td>@x.Aciklama</td>
+                            <td>@x.Tarih</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function openPopup(kargoDetayId) {
+        $('#detaylarModal').modal('show');
+    }
+</script>
+
