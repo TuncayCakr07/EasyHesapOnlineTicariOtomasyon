@@ -22,12 +22,24 @@ namespace EasyHesapOnlineTicariOtomasyon.Controllers
         public ActionResult Index()
         {
             var mail = (string)Session["CariMail"];
-            var degerler=c.Carilers.Where(x=> x.CariMail==mail).ToList();
+            var degerler=c.Mesajlars.Where(x=> x.Alici==mail).ToList();
             ViewBag.m = mail;
             var mailid=c.Carilers.Where(x=> x.CariMail==mail).Select(y=>y.Cariid).FirstOrDefault();
             ViewBag.mid=mailid;
             var toplamsatis = c.SatisHarekets.Where(x => x.Cariid == mailid).Count();
             ViewBag.toplamsatis=toplamsatis;
+            var toplamtutar = c.SatisHarekets.Where(x => x.Cariid == mailid).Sum(y => y.ToplamTutar);
+            ViewBag.toplamtutar=toplamtutar;
+            var toplamurun = c.SatisHarekets.Where(x => x.Cariid == mailid).Sum(y => y.Adet);
+            ViewBag.toplamadet=toplamurun;
+            var adsoyad = c.Carilers.Where(x => x.Cariid == mailid).Select(y => y.CariAd + " " + y.CariSoyad).FirstOrDefault();
+            ViewBag.adsoyad=adsoyad;
+            var adres = c.Carilers.Where(x => x.Cariid == mailid).Select(y => y.CariAdres).FirstOrDefault();
+            ViewBag.adres = adres;
+            var sehir = c.Carilers.Where(x => x.Cariid == mailid).Select(y => y.CariSehir).FirstOrDefault();
+            ViewBag.sehir = sehir;
+            var telefon = c.Carilers.Where(x => x.Cariid == mailid).Select(y => y.CariTelefon).FirstOrDefault();
+            ViewBag.telefon = telefon;
             return View(degerler);
         }
         [Authorize]
