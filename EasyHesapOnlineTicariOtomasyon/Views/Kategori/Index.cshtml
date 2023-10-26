@@ -30,9 +30,11 @@
         </tr>
     }
 </table>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa })
+, new PagedListRenderOptions { LiElementClasses = new List<string> { "page-link" } })
 <br />
 <a href="/Kategori/KategoriEkle" class="btn btn-success">Kategori Ekle</a>
-@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa}))
+
 <script>
     function ekleUyari() {
         alert("Kategori Eklendi");

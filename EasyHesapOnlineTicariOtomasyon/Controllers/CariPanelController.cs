@@ -42,7 +42,6 @@ namespace EasyHesapOnlineTicariOtomasyon.Controllers
             ViewBag.telefon = telefon;
             return View(degerler);
         }
-        [Authorize]
         public ActionResult Siparislerim()
         {
             var mail = (string)Session["CariMail"];
@@ -50,7 +49,6 @@ namespace EasyHesapOnlineTicariOtomasyon.Controllers
             var degerler=c.SatisHarekets.Where(x=> x.Cariid==id).ToList();
             return View(degerler);
         }
-        [Authorize]
         public ActionResult GelenMesajlar()
         {
             var mail = (string)Session["CariMail"];
@@ -61,7 +59,7 @@ namespace EasyHesapOnlineTicariOtomasyon.Controllers
             ViewBag.d2 = gidenmesaj;
             return View(deger);
         }
-        [Authorize]
+
         public ActionResult GidenMesajlar()
         {
             var mail = (string)Session["CariMail"];
@@ -72,7 +70,7 @@ namespace EasyHesapOnlineTicariOtomasyon.Controllers
             ViewBag.d2 = gidenmesaj;
             return View(deger);
         }
-        [Authorize]
+
 
         public ActionResult MesajDetay(int id)
         {
@@ -84,8 +82,7 @@ namespace EasyHesapOnlineTicariOtomasyon.Controllers
             ViewBag.d2 = gidenmesaj;
             return View(deger);
         }
-        [Authorize]
-        [HttpGet]
+
         public ActionResult YeniMesaj()
         {
             var mail = (string)Session["CariMail"];
@@ -96,7 +93,6 @@ namespace EasyHesapOnlineTicariOtomasyon.Controllers
 
             return View();
         }
-        [Authorize]
         [HttpPost]
         public ActionResult YeniMesaj(Mesajlar m)
         {
@@ -107,14 +103,12 @@ namespace EasyHesapOnlineTicariOtomasyon.Controllers
             c.SaveChanges();
             return View();
         }
-        [Authorize]
         public ActionResult KargoTakip(string p)
         {
             var k = from x in c.KargoDetays select x;
             k = k.Where(y => y.TakipKodu.Contains(p));
             return View(k.ToList());
         }
-        [Authorize]
         public ActionResult CariKargoTakip(string id)
         {
             var deger = c.KargoTakips.Where(x => x.TakipKodu == id).ToList();
@@ -125,6 +119,33 @@ namespace EasyHesapOnlineTicariOtomasyon.Controllers
             FormsAuthentication.SignOut();
             Session.Abandon();
             return RedirectToAction("Index","Login");
+        }
+        public PartialViewResult Partial1()
+        {
+            var mail = (string)Session["CariMail"];
+            var id=c.Carilers.Where(x=>x.CariMail==mail).Select(y=>y.Cariid).FirstOrDefault();
+            var cari = c.Carilers.Find(id);
+
+            return PartialView("Partial1",cari);
+        }
+        public PartialViewResult Partial2()
+        {
+            var data=c.Mesajlars.Where(x=> x.Gonderen=="admin").ToList();
+            return PartialView(data);
+        }
+        public ActionResult CariBilgiGuncelle(Cariler cr)
+        {
+            var cari = c.Carilers.Find(cr.Cariid);
+            cari.CariAd = cr.CariAd;
+            cari.CariSoyad = cr.CariSoyad;
+            cari.CariUnvan = cr.CariUnvan;
+            cari.CariSehir = cr.CariSehir;
+            cari.CariSifre = cr.CariSifre;
+            cari.CariMail = cr.CariMail;
+            cari.CariTelefon = cr.CariTelefon;
+            cari.CariAdres = cr.CariAdres;
+            c.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
