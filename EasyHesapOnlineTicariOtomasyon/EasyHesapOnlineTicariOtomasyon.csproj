@@ -162,6 +162,8 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\Admin.cs" />
     <Compile Include="Models\Classes\Class1.cs" />
+    <Compile Include="Models\Classes\Class3.cs" />
+    <Compile Include="Models\Classes\Class4.cs" />
     <Compile Include="Models\Classes\Mesajlar.cs" />
     <Compile Include="Models\Classes\Sinif2.cs" />
     <Compile Include="Models\Classes\Context.cs" />
@@ -2820,6 +2822,8 @@
     <Content Include="Views\CariPanel\Partial1.cshtml" />
     <Content Include="Views\CariPanel\Partial2.cshtml" />
     <Content Include="Views\Error\PageError.cshtml" />
+    <Content Include="Views\Kategori\KategoriUrun.cshtml" />
+    <Content Include="Views\Fatura\Dinamik.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -52,5 +52,26 @@ namespace EasyHesapOnlineTicariOtomasyon.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult KategoriUrun()
+        {
+            Class3 cs=new Class3();
+            cs.Kategoriler = new SelectList(c.Kategoris, "Kategoriid", "KategoriAd");
+            cs.Urunler = new SelectList(c.Uruns, "Urunid", "UrunAd");
+            return View(cs);    
+        }
+
+        public JsonResult UrunGetir(int p)
+        {
+            var urunler = (from x in c.Uruns
+                           join y in c.Kategoris
+                           on x.Kategori.Kategoriid equals y.Kategoriid
+                           where x.Kategori.Kategoriid == p
+                           select new
+                           {
+                               Text = x.UrunAd,
+                               Value = x.Urunid.ToString()
+                           }).ToList();
+            return Json(urunler,JsonRequestBehavior.AllowGet);   
+        }
     }
 }

@@ -8,8 +8,10 @@ using System.Web.Security;
 
 namespace EasyHesapOnlineTicariOtomasyon.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
+       
         // GET: Login
         Context c=new Context();
         public ActionResult Index()
